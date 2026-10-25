@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VeinPay Dashboard</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+
+        .sidebar {
+            width: 240px;
+            background: #111827;
+            color: white;
+            padding: 28px 20px;
+        }
+
+
+        .brand {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 35px;
+        }
+
+
+        .tagline {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-top: 4px;
+        }
+
+
+        .nav-item {
+            display: block;
+            padding: 13px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            color: #d1d5db;
+            text-decoration: none;
+        }
+
+
+        .nav-item:hover {
+            background: #1f2937;
+            color: white;
+        }
+
+
+        .content {
+            flex: 1;
+            padding: 35px;
+        }
+
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+
+        .header p {
+            color: #6b7280;
+        }
+
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(180px, 1fr)
+                );
+
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 14px;
+
+            box-shadow:
+                0 3px 12px
+                rgba(0, 0, 0, 0.05);
+        }
+
+
+        .card-title {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+
+        .card-value {
+            margin-top: 8px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+
+        .status-card {
+            background: white;
+            padding: 22px;
+            border-radius: 14px;
+            margin-bottom: 30px;
+
+            box-shadow:
+                0 3px 12px
+                rgba(0, 0, 0, 0.05);
+        }
+
+
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+
+            border-bottom:
+                1px solid
+                #e5e7eb;
+        }
+
+
+        .status-row:last-child {
+            border-bottom: none;
+        }
+
+
+        .section {
+            background: white;
+            padding: 22px;
+            border-radius: 14px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+
+            box-shadow:
+                0 3px 12px
+                rgba(0, 0, 0, 0.05);
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+
+        th,
+        td {
+            text-align: left;
+            padding: 12px;
+
+            border-bottom:
+                1px solid
+                #e5e7eb;
+
+            white-space: nowrap;
+        }
+
+
+        th {
+            background: #f9fafb;
+        }
+
+
+        .empty {
+            color: #9ca3af;
+        }
+
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+
+        .edit-button {
+            display: inline-block;
+
+            padding: 8px 12px;
+
+            background: #111827;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+
+        .delete-button {
+            padding: 8px 12px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background: #dc2626;
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .delete-button:hover {
+            opacity: 0.85;
+        }
+
+
+        .delete-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+
+        @media(max-width: 800px) {
+
+            .sidebar {
+                display: none;
+            }
+
+
+            .content {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="brand">
+
+            VeinPay
+
+            <div class="tagline">
+
+                Pay with your palm.
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="nav-item"
+            href="/"
+        >
+            Dashboard
+        </a>
+
+
+        <a
+            class="nav-item"
+            href="/enroll"
+        >
+            Register User
+        </a>
+
+
+        <a
+            class="nav-item"
+            href="/payment"
+        >
+            New Payment
+        </a>
+
+
+        <a
+            class="nav-item"
+            href="/merchant-wallet"
+        >
+            Merchant Wallet
+        </a>
+
+
+        <a
+            class="nav-item"
+            href="/scan"
+        >
+            Payment Scan
+        </a>
+
+
+    </aside>
+
+
+    <!-- =====================================================
+         CONTENT
+    ====================================================== -->
+
+    <main class="content">
+
+
+        <div class="header">
+
+            <h1>
+                VeinPay Dashboard
+            </h1>
+
+            <p>
+                Contactless Palm Vein Biometric Payment Terminal
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             SUMMARY CARDS
+        ================================================== -->
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="card-title">
+                    Registered Users
+                </div>
+
+                <div class="card-value">
+                    {{ total_users }}
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">
+                    Transactions
+                </div>
+
+                <div class="card-value">
+                    {{ total_transactions }}
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">
+                    Successful Payments
+                </div>
+
+                <div class="card-value">
+                    {{ successful_transactions }}
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">
+                    Total Paid
+                </div>
+
+                <div class="card-value">
+
+                    ₹{{ "%.2f"|format(total_paid) }}
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             SYSTEM STATUS
+        ================================================== -->
+
+        <div class="status-card">
+
+
+            <h2>
+                System Status
+            </h2>
+
+
+            <div class="status-row">
+
+                <span>
+                    Database
+                </span>
+
+                <b>
+                    CONNECTED
+                </b>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    Camera Module 3 NoIR
+                </span>
+
+                <b>
+                    CONNECTED
+                </b>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    Palm Authentication
+                </span>
+
+                <b>
+                    WAITING FOR REAL NIR CALIBRATION
+                </b>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    Payment Backend
+                </span>
+
+                <b>
+                    READY
+                </b>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             REGISTERED USERS
+        ================================================== -->
+
+        <div class="section">
+
+
+            <h2>
+                Registered Users
+            </h2>
+
+
+            <table>
+
+
+                <thead>
+
+
+                    <tr>
+
+                        <th>User ID</th>
+
+                        <th>Name</th>
+
+                        <th>Phone</th>
+
+                        <th>Email</th>
+
+                        <th>Wallet Balance</th>
+
+                        <th>Palm Template</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+
+                </thead>
+
+
+                <tbody>
+
+
+                {% for user in users %}
+
+
+                    <tr>
+
+
+                        <td>
+                            {{ user["user_id"] }}
+                        </td>
+
+
+                        <td>
+                            {{ user["name"] }}
+                        </td>
+
+
+                        <td>
+
+                            {% if user["phone_number"] %}
+
+                                {{ user["phone_number"] }}
+
+                            {% else %}
+
+                                <span class="empty">
+                                    -
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+                            {% if user["email"] %}
+
+                                {{ user["email"] }}
+
+                            {% else %}
+
+                                <span class="empty">
+                                    -
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+                            ₹{{ "%.2f"|format(user["wallet_balance"]) }}
+
+                        </td>
+
+
+                        <td>
+
+                            {% if user["template_path"] == "PENDING_REAL_NIR_TEMPLATE" %}
+
+                                Waiting for NIR enrollment
+
+                            {% else %}
+
+                                {{ user["template_path"] }}
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+
+                            <div class="actions">
+
+
+                                <a
+                                    class="edit-button"
+                                    href="/user/{{ user['user_id'] }}/edit"
+                                >
+                                    Edit
+                                </a>
+
+
+                                <button
+                                    type="button"
+                                    class="delete-button"
+                                    data-user-id="{{ user['user_id'] }}"
+                                    data-user-name="{{ user['name']|e }}"
+                                    onclick="deleteUser(this)"
+                                >
+                                    Remove
+                                </button>
+
+
+                            </div>
+
+
+                        </td>
+
+
+                    </tr>
+
+
+                {% else %}
+
+
+                    <tr>
+
+                        <td
+                            colspan="7"
+                            class="empty"
+                        >
+                            No users registered.
+                        </td>
+
+                    </tr>
+
+
+                {% endfor %}
+
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+        <!-- =================================================
+             RECENT TRANSACTIONS
+        ================================================== -->
+
+        <div class="section">
+
+
+            <h2>
+                Recent Transactions
+            </h2>
+
+
+            <table>
+
+
+                <thead>
+
+
+                    <tr>
+
+                        <th>Transaction ID</th>
+
+                        <th>User ID</th>
+
+                        <th>User Name</th>
+
+                        <th>Amount</th>
+
+                        <th>Status</th>
+
+                        <th>Similarity</th>
+
+                        <th>Notification</th>
+
+                        <th>Date / Time</th>
+
+                    </tr>
+
+
+                </thead>
+
+
+                <tbody>
+
+
+                {% for transaction in transactions %}
+
+
+                    <tr>
+
+
+                        <td>
+                            {{ transaction["transaction_id"] }}
+                        </td>
+
+
+                        <td>
+
+                            {% if transaction["user_id"] is not none %}
+
+                                {{ transaction["user_id"] }}
+
+                            {% else %}
+
+                                <span class="empty">
+                                    -
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+                            {% if transaction["user_name"] %}
+
+                                {{ transaction["user_name"] }}
+
+                            {% else %}
+
+                                <span class="empty">
+                                    Deleted User
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+                            ₹{{ "%.2f"|format(transaction["amount"]) }}
+
+                        </td>
+
+
+                        <td>
+
+                            {{ transaction["status"] }}
+
+                        </td>
+
+
+                        <td>
+
+                            {% if transaction["similarity_score"] is not none %}
+
+                                {{ "%.2f"|format(transaction["similarity_score"]) }}%
+
+                            {% else %}
+
+                                <span class="empty">
+                                    -
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+
+                            {% if transaction["notification_status"] %}
+
+                                {{ transaction["notification_status"] }}
+
+                            {% else %}
+
+                                <span class="empty">
+                                    -
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+                            {{ transaction["timestamp"] }}
+                        </td>
+
+
+                    </tr>
+
+
+                {% else %}
+
+
+                    <tr>
+
+                        <td
+                            colspan="8"
+                            class="empty"
+                        >
+                            No transactions available.
+                        </td>
+
+                    </tr>
+
+
+                {% endfor %}
+
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+<script>
+
+
+// ============================================================
+// REMOVE USER
+// ============================================================
+
+async function deleteUser(
+    button
+) {
+
+
+    const userId =
+        Number(
+            button.dataset.userId
+        );
+
+
+    const userName =
+        button.dataset.userName;
+
+
+    const confirmed =
+        window.confirm(
+            "Remove VeinPay user?\n\n"
+            +
+            "User: "
+            +
+            userName
+            +
+            "\n"
+            +
+            "User ID: "
+            +
+            userId
+            +
+            "\n\n"
+            +
+            "The user profile, wallet and palm enrollment "
+            +
+            "data will be permanently deleted.\n\n"
+            +
+            "Previous transaction records will be preserved."
+        );
+
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+    const finalConfirmation =
+        window.confirm(
+            "Are you sure you want to permanently remove "
+            +
+            userName
+            +
+            "?"
+        );
+
+
+    if (!finalConfirmation) {
+
+        return;
+
+    }
+
+
+    button.disabled =
+        true;
+
+
+    button.innerText =
+        "Removing...";
+
+
+    try {
+
+
+        const response =
+            await fetch(
+                "/api/user/"
+                +
+                userId
+                +
+                "/delete",
+                {
+                    method:
+                        "POST"
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (
+            response.ok !== true
+            ||
+            result.success !== true
+        ) {
+
+
+            alert(
+                result.message
+                ||
+                "Unable to remove user."
+            );
+
+
+            button.disabled =
+                false;
+
+
+            button.innerText =
+                "Remove";
+
+
+            return;
+
+        }
+
+
+        alert(
+            result.message
+        );
+
+
+        window.location.reload();
+
+
+    }
+
+
+    catch (error) {
+
+
+        console.error(
+            error
+        );
+
+
+        alert(
+            "Unable to contact VeinPay server."
+        );
+
+
+        button.disabled =
+            false;
+
+
+        button.innerText =
+            "Remove";
+
+    }
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

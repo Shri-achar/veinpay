@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>VeinPay User Registration</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background: #111827;
+            color: white;
+            padding: 28px 20px;
+            flex-shrink: 0;
+        }
+
+        .brand {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 35px;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-top: 4px;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 13px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            color: #d1d5db;
+            text-decoration: none;
+        }
+
+        .nav-item:hover {
+            background: #1f2937;
+            color: white;
+        }
+
+        .nav-item.active {
+            background: #374151;
+            color: white;
+        }
+
+        .content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 760px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        @media(max-width: 800px) {
+            .sidebar {
+                display: none;
+            }
+
+            .container {
+                width: 100%;
+                padding: 25px 20px;
+            }
+        }
+
+
+        .top-link {
+            margin-bottom: 20px;
+        }
+
+
+        .top-link a {
+            color: #111827;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        .title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-top: 7px;
+            margin-bottom: 30px;
+        }
+
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow:
+                0 3px 14px
+                rgba(0, 0, 0, 0.07);
+        }
+
+
+        .section-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 19px;
+            border: 1px solid #d1d5db;
+            border-radius: 9px;
+            font-size: 16px;
+        }
+
+
+        input:focus {
+            outline: 2px solid #9ca3af;
+            border-color: #9ca3af;
+        }
+
+
+        .optional {
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: normal;
+        }
+
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 8px;
+            border: none;
+            border-radius: 10px;
+            background: #111827;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+        button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+
+        .status-box {
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+        }
+
+
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 9px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+
+        .status-row:last-child {
+            border-bottom: none;
+        }
+
+
+        .pending {
+            font-weight: bold;
+        }
+
+
+        .success-box {
+            display: none;
+            margin-top: 22px;
+            padding: 20px;
+            background: #ecfdf5;
+            border: 1px solid #86efac;
+            border-radius: 12px;
+        }
+
+
+        .success-title {
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+
+        .error-box {
+            display: none;
+            margin-top: 22px;
+            padding: 16px;
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            border-radius: 12px;
+        }
+
+
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            VeinPay
+
+            <div class="tagline">
+                Pay with your palm.
+            </div>
+        </div>
+
+        <a class="nav-item" href="/">
+            Dashboard
+        </a>
+
+        <a class="nav-item active" href="/enroll">
+            Register User
+        </a>
+
+        <a class="nav-item" href="/payment">
+            New Payment
+        </a>
+
+        <a class="nav-item" href="/merchant-wallet">
+            Merchant Wallet
+        </a>
+
+        <a class="nav-item" href="/scan">
+            Payment Scan
+        </a>
+
+    </aside>
+
+    <main class="content">
+
+        <div class="container">
+
+
+    <div class="title">
+        VeinPay
+    </div>
+
+
+    <div class="subtitle">
+        User Registration
+    </div>
+
+
+    <div class="card">
+
+
+        <div class="section-title">
+            Account Details
+        </div>
+
+
+        <!-- =================================================
+             NAME
+        ================================================== -->
+
+        <label for="userName">
+
+            Full Name
+
+        </label>
+
+
+        <input
+            type="text"
+            id="userName"
+            placeholder="Enter user's full name"
+            autocomplete="name"
+        >
+
+
+        <!-- =================================================
+             PHONE
+        ================================================== -->
+
+        <label for="phoneNumber">
+
+            Phone Number
+
+            <span class="optional">
+                (optional)
+            </span>
+
+        </label>
+
+
+        <input
+            type="tel"
+            id="phoneNumber"
+            placeholder="+919876543210"
+            autocomplete="tel"
+        >
+
+
+        <!-- =================================================
+             EMAIL
+        ================================================== -->
+
+        <label for="email">
+
+            Email Address
+
+            <span class="optional">
+                (optional)
+            </span>
+
+        </label>
+
+
+        <input
+            type="email"
+            id="email"
+            placeholder="user@example.com"
+            autocomplete="email"
+        >
+
+
+        <!-- =================================================
+             WALLET
+        ================================================== -->
+
+        <label for="walletBalance">
+
+            Initial Wallet Balance
+
+        </label>
+
+
+        <input
+            type="number"
+            id="walletBalance"
+            value="1000"
+            min="0"
+            step="0.01"
+        >
+
+
+        <!-- =================================================
+             REGISTER BUTTON
+        ================================================== -->
+
+        <button
+            id="registerButton"
+            onclick="registerUser()">
+
+            Register User Profile
+
+        </button>
+
+
+        <!-- =================================================
+             PALM STATUS
+        ================================================== -->
+
+        <div class="status-box">
+
+
+            <div class="status-row">
+
+                <span>
+                    Account Profile
+                </span>
+
+                <b>
+                    READY
+                </b>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    Palm-Vein Template
+                </span>
+
+                <span class="pending">
+                    PENDING NIR ENROLLMENT
+                </span>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    Payment Wallet
+                </span>
+
+                <b>
+                    CREATED WITH PROFILE
+                </b>
+
+            </div>
+
+
+            <div class="status-row">
+
+                <span>
+                    Email Notifications
+                </span>
+
+                <b>
+                    AVAILABLE IF EMAIL IS PROVIDED
+                </b>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             ERROR RESULT
+        ================================================== -->
+
+        <div
+            class="error-box"
+            id="errorBox">
+
+            <b>
+                Registration Failed
+            </b>
+
+            <p id="errorMessage">
+                --
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             SUCCESS RESULT
+        ================================================== -->
+
+        <div
+            class="success-box"
+            id="successBox">
+
+
+            <div class="success-title">
+                User Profile Registered
+            </div>
+
+
+            <p>
+
+                User ID:
+                <b id="resultUserId">
+                    --
+                </b>
+
+            </p>
+
+
+            <p>
+
+                Name:
+                <b id="resultName">
+                    --
+                </b>
+
+            </p>
+
+
+            <p>
+
+                Phone:
+                <b id="resultPhone">
+                    --
+                </b>
+
+            </p>
+
+
+            <p>
+
+                Email:
+                <b id="resultEmail">
+                    --
+                </b>
+
+            </p>
+
+
+            <p>
+
+                Wallet Balance:
+                ₹<b id="resultBalance">
+                    --
+                </b>
+
+            </p>
+
+
+            <p>
+
+                Palm Status:
+                <b id="resultPalmStatus">
+                    --
+                </b>
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer">
+
+        VeinPay – Contactless Palm Vein Biometric Payment Terminal
+
+    </div>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script>
+
+
+// ============================================================
+// REGISTER USER
+// ============================================================
+
+async function registerUser() {
+
+
+    const name =
+
+        document
+        .getElementById(
+            "userName"
+        )
+        .value
+        .trim();
+
+
+    const phoneNumber =
+
+        document
+        .getElementById(
+            "phoneNumber"
+        )
+        .value
+        .trim();
+
+
+    const email =
+
+        document
+        .getElementById(
+            "email"
+        )
+        .value
+        .trim();
+
+
+    const walletBalance =
+
+        document
+        .getElementById(
+            "walletBalance"
+        )
+        .value;
+
+
+    // ========================================================
+    // BASIC BROWSER VALIDATION
+    // ========================================================
+
+    if (name === "") {
+
+        showError(
+            "Please enter the user's name."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        walletBalance === ""
+        ||
+        Number(walletBalance) < 0
+    ) {
+
+        showError(
+            "Please enter a valid wallet balance."
+        );
+
+        return;
+
+    }
+
+
+    // ========================================================
+    // PREPARE UI
+    // ========================================================
+
+    const registerButton =
+
+        document
+        .getElementById(
+            "registerButton"
+        );
+
+
+    registerButton.disabled = true;
+
+    registerButton.innerText =
+        "Registering...";
+
+
+    document
+        .getElementById(
+            "errorBox"
+        )
+        .style
+        .display =
+        "none";
+
+
+    document
+        .getElementById(
+            "successBox"
+        )
+        .style
+        .display =
+        "none";
+
+
+    // ========================================================
+    // SEND TO FLASK
+    // ========================================================
+
+    try {
+
+
+        const response =
+
+            await fetch(
+                "/api/register_user",
+                {
+
+                    method:
+                        "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify(
+                            {
+
+                                name:
+                                    name,
+
+                                phone_number:
+                                    phoneNumber,
+
+                                email:
+                                    email,
+
+                                wallet_balance:
+                                    Number(
+                                        walletBalance
+                                    )
+
+                            }
+                        )
+
+                }
+            );
+
+
+        const result =
+
+            await response.json();
+
+
+        // ====================================================
+        // FAILED
+        // ====================================================
+
+        if (
+            result.success !== true
+        ) {
+
+            showError(
+                result.message
+                ||
+                "Unable to register user."
+            );
+
+
+            registerButton.disabled =
+                false;
+
+
+            registerButton.innerText =
+                "Register User Profile";
+
+
+            return;
+
+        }
+
+
+        // ====================================================
+        // SUCCESS
+        // ====================================================
+
+        document
+            .getElementById(
+                "resultUserId"
+            )
+            .innerText =
+            result.user_id;
+
+
+        document
+            .getElementById(
+                "resultName"
+            )
+            .innerText =
+            result.name;
+
+
+        document
+            .getElementById(
+                "resultPhone"
+            )
+            .innerText =
+            result.phone_number
+            ||
+            "-";
+
+
+        document
+            .getElementById(
+                "resultEmail"
+            )
+            .innerText =
+            result.email
+            ||
+            "-";
+
+
+        document
+            .getElementById(
+                "resultBalance"
+            )
+            .innerText =
+            Number(
+                result.wallet_balance
+            ).toFixed(2);
+
+
+        document
+            .getElementById(
+                "resultPalmStatus"
+            )
+            .innerText =
+            result.palm_status;
+
+
+        document
+            .getElementById(
+                "successBox"
+            )
+            .style
+            .display =
+            "block";
+
+
+        registerButton.innerText =
+            "Profile Registered";
+
+
+        if (result.enrollment_url) {
+
+            window.location.href =
+                result.enrollment_url;
+
+            return;
+
+        }
+
+
+        showError(
+            "Registration completed, but enrollment page URL was not returned."
+        );
+
+
+        registerButton.disabled =
+            false;
+
+        registerButton.innerText =
+            "Register User Profile";
+
+
+    }
+
+
+    catch (error) {
+
+
+        console.log(
+            error
+        );
+
+
+        showError(
+            "Unable to connect to the VeinPay server."
+        );
+
+
+        registerButton.disabled =
+            false;
+
+
+        registerButton.innerText =
+            "Register User Profile";
+
+    }
+
+}
+
+
+// ============================================================
+// SHOW ERROR
+// ============================================================
+
+function showError(
+    message
+) {
+
+
+    document
+        .getElementById(
+            "errorMessage"
+        )
+        .innerText =
+        message;
+
+
+    document
+        .getElementById(
+            "errorBox"
+        )
+        .style
+        .display =
+        "block";
+
+
+    document
+        .getElementById(
+            "successBox"
+        )
+        .style
+        .display =
+        "none";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

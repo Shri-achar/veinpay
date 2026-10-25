@@ -1,0 +1,804 @@
+pi@veinpay:~/VeinPay $ cd ~/VeinPay
+source .venv-ml/bin/activate
+
+python -m py_compile palm_fixed_focus_comparison.py
+python palm_fixed_focus_comparison.py
+
+========================================================================
+VEINPAY - FRESH PALM RECOGNITION COMPARISON
+========================================================================
+
+Enrolled user: Shrinidhi (User 23)
+Enrollment samples: 10
+Total test images: 15
+Fixed-focus captures: 3
+New genuine scans: 3
+
+========================================================================
+METHOD: OLD_FRANGI
+========================================================================
+
+Preparing enrollment templates...
+  sample_01.jpg: 807 keypoints
+  sample_02.jpg: 770 keypoints
+  sample_03.jpg: 797 keypoints
+  sample_04.jpg: 580 keypoints
+  sample_05.jpg: 841 keypoints
+  sample_06.jpg: 857 keypoints
+  sample_07.jpg: 847 keypoints
+  sample_08.jpg: 877 keypoints
+  sample_09.jpg: 812 keypoints
+  sample_10.jpg: 844 keypoints
+
+------------------------------------------------------------------------
+TESTING CAPTURED PALM IMAGES
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261015_173036.jpg
+------------------------------------------------------------------------
+Query keypoints: 346
+MAX score:       27.68%
+Top-3 score:     25.86%
+Best template:   sample_09.jpg
+Median matches among Top-3: 112
+Median good matches among Top-3: 30
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261015_173059.jpg
+------------------------------------------------------------------------
+Query keypoints: 542
+MAX score:       31.39%
+Top-3 score:     29.15%
+Best template:   sample_05.jpg
+Median matches among Top-3: 132
+Median good matches among Top-3: 38
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261015_173111.jpg
+------------------------------------------------------------------------
+Query keypoints: 134
+MAX score:       32.00%
+Top-3 score:     28.79%
+Best template:   sample_04.jpg
+Median matches among Top-3: 51
+Median good matches among Top-3: 14
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261016_131412.jpg
+------------------------------------------------------------------------
+*** NEW GENUINE SCAN ***
+Query keypoints: 959
+MAX score:       9.87%
+Top-3 score:     9.37%
+Best template:   sample_08.jpg
+Median matches among Top-3: 223
+Median good matches among Top-3: 22
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261016_131428.jpg
+------------------------------------------------------------------------
+*** NEW GENUINE SCAN ***
+Query keypoints: 839
+MAX score:       17.49%
+Top-3 score:     15.81%
+Best template:   sample_09.jpg
+Median matches among Top-3: 195
+Median good matches among Top-3: 30
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261016_131500.jpg
+------------------------------------------------------------------------
+*** NEW GENUINE SCAN ***
+Query keypoints: 977
+MAX score:       6.82%
+Top-3 score:     5.85%
+Best template:   sample_09.jpg
+Median matches among Top-3: 235
+Median good matches among Top-3: 13
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_FIXED
+Image: fixed_focus_capture_01.jpg
+------------------------------------------------------------------------
+Query keypoints: 881
+MAX score:       20.31%
+Top-3 score:     18.44%
+Best template:   sample_05.jpg
+Median matches among Top-3: 196
+Median good matches among Top-3: 39
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_FIXED
+Image: fixed_focus_capture_02.jpg
+------------------------------------------------------------------------
+Query keypoints: 847
+MAX score:       17.24%
+Top-3 score:     15.99%
+Best template:   sample_05.jpg
+Median matches among Top-3: 185
+Median good matches among Top-3: 29
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_FIXED
+Image: fixed_focus_capture_03.jpg
+------------------------------------------------------------------------
+Query keypoints: 684
+MAX score:       20.53%
+Top-3 score:     17.95%
+Best template:   sample_09.jpg
+Median matches among Top-3: 151
+Median good matches among Top-3: 27
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_RIGHT
+Image: palm_20261015_174109.jpg
+------------------------------------------------------------------------
+Query keypoints: 914
+MAX score:       3.90%
+Top-3 score:     3.56%
+Best template:   sample_08.jpg
+Median matches among Top-3: 233
+Median good matches among Top-3: 8
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_RIGHT
+Image: palm_20261015_174126.jpg
+------------------------------------------------------------------------
+Query keypoints: 810
+MAX score:       11.46%
+Top-3 score:     10.72%
+Best template:   sample_09.jpg
+Median matches among Top-3: 181
+Median good matches among Top-3: 19
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_RIGHT
+Image: palm_20261015_174146.jpg
+------------------------------------------------------------------------
+Query keypoints: 870
+MAX score:       24.73%
+Top-3 score:     24.58%
+Best template:   sample_06.jpg
+Median matches among Top-3: 177
+Median good matches among Top-3: 43
+
+------------------------------------------------------------------------
+Group: YOUR_LEFT
+Image: palm_20261016_122854.jpg
+------------------------------------------------------------------------
+Query keypoints: 944
+MAX score:       14.05%
+Top-3 score:     13.32%
+Best template:   sample_09.jpg
+Median matches among Top-3: 200
+Median good matches among Top-3: 26
+
+------------------------------------------------------------------------
+Group: YOUR_LEFT
+Image: palm_20261016_122931.jpg
+------------------------------------------------------------------------
+Query keypoints: 911
+MAX score:       13.30%
+Top-3 score:     9.68%
+Best template:   sample_09.jpg
+Median matches among Top-3: 215
+Median good matches among Top-3: 17
+
+------------------------------------------------------------------------
+Group: YOUR_LEFT
+Image: palm_20261016_122945.jpg
+------------------------------------------------------------------------
+Query keypoints: 948
+MAX score:       12.26%
+Top-3 score:     11.99%
+Best template:   sample_07.jpg
+Median matches among Top-3: 212
+Median good matches among Top-3: 26
+
+========================================================================
+GROUP SUMMARY - OLD_FRANGI
+========================================================================
+
+SHRINIDHI_LEFT
+---------------------------------------------
+  Number of scans: 6
+  Mean Top-3: 19.14%
+  Minimum:    5.85%
+  Maximum:    29.15%
+
+SHRINIDHI_FIXED
+---------------------------------------------
+  Number of scans: 3
+  Mean Top-3: 17.46%
+  Minimum:    15.99%
+  Maximum:    18.44%
+
+SHRINIDHI_RIGHT
+---------------------------------------------
+  Number of scans: 3
+  Mean Top-3: 12.95%
+  Minimum:    3.56%
+  Maximum:    24.58%
+
+YOUR_LEFT
+---------------------------------------------
+  Number of scans: 3
+  Mean Top-3: 11.67%
+  Minimum:    9.68%
+  Maximum:    13.32%
+
+========================================================================
+SEPARATION ANALYSIS
+========================================================================
+Lowest genuine score:       5.85%
+Highest Shrinidhi right:    24.58%
+Highest different person:   13.32%
+Highest negative overall:   24.58%
+Left-vs-right gap:          -18.73 points
+Different-person gap:       -7.47 points
+Overall separation gap:     -18.73 points
+
+RESULT: Genuine and unenrolled score ranges overlap.
+
+------------------------------------------------------------------------
+NEW GENUINE SCANS
+------------------------------------------------------------------------
+New scan 1: 9.37%
+New scan 2: 15.81%
+New scan 3: 5.85%
+Lowest NEW genuine score: 5.85%
+
+------------------------------------------------------------------------
+MANUAL FOCUS vs RECENT AUTOFOCUS (same enrollment)
+------------------------------------------------------------------------
+Recent AF mean Top-3:    10.34%
+Fixed focus mean Top-3: 17.46%
+Difference (fixed - AF): +7.12 points
+Fixed focus minimum:    15.99%
+Highest negative:       24.58%
+All genuine minimum:    5.85%
+Observational comparison only: lighting, pose, and session may differ.
+
+Median selected match count: 195
+Total processing time: 22.18 seconds
+
+========================================================================
+METHOD: CURRENT_FRANGI
+========================================================================
+
+Preparing enrollment templates...
+  sample_01.jpg: 699 keypoints
+  sample_02.jpg: 699 keypoints
+  sample_03.jpg: 779 keypoints
+  sample_04.jpg: 761 keypoints
+  sample_05.jpg: 702 keypoints
+  sample_06.jpg: 588 keypoints
+  sample_07.jpg: 672 keypoints
+  sample_08.jpg: 678 keypoints
+  sample_09.jpg: 633 keypoints
+  sample_10.jpg: 722 keypoints
+
+------------------------------------------------------------------------
+TESTING CAPTURED PALM IMAGES
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261015_173036.jpg
+------------------------------------------------------------------------
+Query keypoints: 569
+MAX score:       53.47%
+Top-3 score:     51.00%
+Best template:   sample_06.jpg
+Median matches among Top-3: 108
+Median good matches among Top-3: 54
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261015_173059.jpg
+------------------------------------------------------------------------
+Query keypoints: 555
+MAX score:       54.39%
+Top-3 score:     52.38%
+Best template:   sample_04.jpg
+Median matches among Top-3: 95
+Median good matches among Top-3: 50
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261015_173111.jpg
+------------------------------------------------------------------------
+Query keypoints: 374
+MAX score:       64.10%
+Top-3 score:     62.36%
+Best template:   sample_08.jpg
+Median matches among Top-3: 74
+Median good matches among Top-3: 46
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261016_131412.jpg
+------------------------------------------------------------------------
+*** NEW GENUINE SCAN ***
+Query keypoints: 920
+MAX score:       25.97%
+Top-3 score:     24.98%
+Best template:   sample_04.jpg
+Median matches among Top-3: 154
+Median good matches among Top-3: 38
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261016_131428.jpg
+------------------------------------------------------------------------
+*** NEW GENUINE SCAN ***
+Query keypoints: 839
+MAX score:       40.15%
+Top-3 score:     38.01%
+Best template:   sample_05.jpg
+Median matches among Top-3: 132
+Median good matches among Top-3: 51
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261016_131500.jpg
+------------------------------------------------------------------------
+*** NEW GENUINE SCAN ***
+Query keypoints: 925
+MAX score:       26.62%
+Top-3 score:     23.31%
+Best template:   sample_09.jpg
+Median matches among Top-3: 153
+Median good matches among Top-3: 35
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_FIXED
+Image: fixed_focus_capture_01.jpg
+------------------------------------------------------------------------
+Query keypoints: 629
+MAX score:       44.53%
+Top-3 score:     41.99%
+Best template:   sample_04.jpg
+Median matches among Top-3: 118
+Median good matches among Top-3: 45
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_FIXED
+Image: fixed_focus_capture_02.jpg
+------------------------------------------------------------------------
+Query keypoints: 337
+MAX score:       44.00%
+Top-3 score:     43.26%
+Best template:   sample_05.jpg
+Median matches among Top-3: 69
+Median good matches among Top-3: 29
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_FIXED
+Image: fixed_focus_capture_03.jpg
+------------------------------------------------------------------------
+Query keypoints: 658
+MAX score:       38.38%
+Top-3 score:     35.18%
+Best template:   sample_06.jpg
+Median matches among Top-3: 100
+Median good matches among Top-3: 38
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_RIGHT
+Image: palm_20261015_174109.jpg
+------------------------------------------------------------------------
+Query keypoints: 772
+MAX score:       14.93%
+Top-3 score:     14.04%
+Best template:   sample_06.jpg
+Median matches among Top-3: 136
+Median good matches among Top-3: 20
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_RIGHT
+Image: palm_20261015_174126.jpg
+------------------------------------------------------------------------
+Query keypoints: 742
+MAX score:       32.54%
+Top-3 score:     28.28%
+Best template:   sample_09.jpg
+Median matches among Top-3: 133
+Median good matches among Top-3: 37
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_RIGHT
+Image: palm_20261015_174146.jpg
+------------------------------------------------------------------------
+Query keypoints: 817
+MAX score:       42.64%
+Top-3 score:     41.41%
+Best template:   sample_05.jpg
+Median matches among Top-3: 129
+Median good matches among Top-3: 53
+
+------------------------------------------------------------------------
+Group: YOUR_LEFT
+Image: palm_20261016_122854.jpg
+------------------------------------------------------------------------
+Query keypoints: 951
+MAX score:       25.95%
+Top-3 score:     25.43%
+Best template:   sample_06.jpg
+Median matches among Top-3: 146
+Median good matches among Top-3: 37
+
+------------------------------------------------------------------------
+Group: YOUR_LEFT
+Image: palm_20261016_122931.jpg
+------------------------------------------------------------------------
+Query keypoints: 926
+MAX score:       35.48%
+Top-3 score:     32.81%
+Best template:   sample_06.jpg
+Median matches among Top-3: 139
+Median good matches among Top-3: 44
+
+------------------------------------------------------------------------
+Group: YOUR_LEFT
+Image: palm_20261016_122945.jpg
+------------------------------------------------------------------------
+Query keypoints: 918
+MAX score:       40.91%
+Top-3 score:     36.94%
+Best template:   sample_09.jpg
+Median matches among Top-3: 132
+Median good matches among Top-3: 49
+
+========================================================================
+GROUP SUMMARY - CURRENT_FRANGI
+========================================================================
+
+SHRINIDHI_LEFT
+---------------------------------------------
+  Number of scans: 6
+  Mean Top-3: 42.01%
+  Minimum:    23.31%
+  Maximum:    62.36%
+
+SHRINIDHI_FIXED
+---------------------------------------------
+  Number of scans: 3
+  Mean Top-3: 40.14%
+  Minimum:    35.18%
+  Maximum:    43.26%
+
+SHRINIDHI_RIGHT
+---------------------------------------------
+  Number of scans: 3
+  Mean Top-3: 27.91%
+  Minimum:    14.04%
+  Maximum:    41.41%
+
+YOUR_LEFT
+---------------------------------------------
+  Number of scans: 3
+  Mean Top-3: 31.73%
+  Minimum:    25.43%
+  Maximum:    36.94%
+
+========================================================================
+SEPARATION ANALYSIS
+========================================================================
+Lowest genuine score:       23.31%
+Highest Shrinidhi right:    41.41%
+Highest different person:   36.94%
+Highest negative overall:   41.41%
+Left-vs-right gap:          -18.10 points
+Different-person gap:       -13.63 points
+Overall separation gap:     -18.10 points
+
+RESULT: Genuine and unenrolled score ranges overlap.
+
+------------------------------------------------------------------------
+NEW GENUINE SCANS
+------------------------------------------------------------------------
+New scan 1: 24.98%
+New scan 2: 38.01%
+New scan 3: 23.31%
+Lowest NEW genuine score: 23.31%
+
+------------------------------------------------------------------------
+MANUAL FOCUS vs RECENT AUTOFOCUS (same enrollment)
+------------------------------------------------------------------------
+Recent AF mean Top-3:    28.77%
+Fixed focus mean Top-3: 40.14%
+Difference (fixed - AF): +11.37 points
+Fixed focus minimum:    35.18%
+Highest negative:       41.41%
+All genuine minimum:    23.31%
+Observational comparison only: lighting, pose, and session may differ.
+
+Median selected match count: 132
+Total processing time: 25.81 seconds
+
+========================================================================
+METHOD: CLAHE_ORB
+========================================================================
+
+Preparing enrollment templates...
+  sample_01.jpg: 26 keypoints
+  sample_02.jpg: 22 keypoints
+  sample_03.jpg: 22 keypoints
+  sample_04.jpg: 3 keypoints
+  sample_05.jpg: 52 keypoints
+  sample_06.jpg: 48 keypoints
+  sample_07.jpg: 57 keypoints
+  sample_08.jpg: 39 keypoints
+  sample_09.jpg: 48 keypoints
+  sample_10.jpg: 52 keypoints
+
+------------------------------------------------------------------------
+TESTING CAPTURED PALM IMAGES
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261015_173036.jpg
+------------------------------------------------------------------------
+Query keypoints: 171
+MAX score:       50.00%
+Top-3 score:     32.45%
+Best template:   sample_04.jpg
+Median matches among Top-3: 17
+Median good matches among Top-3: 4
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261015_173059.jpg
+------------------------------------------------------------------------
+Query keypoints: 157
+MAX score:       31.25%
+Top-3 score:     27.08%
+Best template:   sample_01.jpg
+Median matches among Top-3: 12
+Median good matches among Top-3: 3
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261015_173111.jpg
+------------------------------------------------------------------------
+Query keypoints: 231
+MAX score:       37.50%
+Top-3 score:     32.45%
+Best template:   sample_09.jpg
+Median matches among Top-3: 17
+Median good matches among Top-3: 6
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261016_131412.jpg
+------------------------------------------------------------------------
+*** NEW GENUINE SCAN ***
+Query keypoints: 119
+MAX score:       20.00%
+Top-3 score:     15.13%
+Best template:   sample_02.jpg
+Median matches among Top-3: 10
+Median good matches among Top-3: 2
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261016_131428.jpg
+------------------------------------------------------------------------
+*** NEW GENUINE SCAN ***
+Query keypoints: 172
+MAX score:       15.38%
+Top-3 score:     14.65%
+Best template:   sample_03.jpg
+Median matches among Top-3: 14
+Median good matches among Top-3: 2
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_LEFT
+Image: palm_20261016_131500.jpg
+------------------------------------------------------------------------
+*** NEW GENUINE SCAN ***
+Query keypoints: 136
+MAX score:       11.11%
+Top-3 score:     5.66%
+Best template:   sample_03.jpg
+Median matches among Top-3: 14
+Median good matches among Top-3: 1
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_FIXED
+Image: fixed_focus_capture_01.jpg
+------------------------------------------------------------------------
+Query keypoints: 34
+MAX score:       14.29%
+Top-3 score:     12.63%
+Best template:   sample_09.jpg
+Median matches among Top-3: 8
+Median good matches among Top-3: 1
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_FIXED
+Image: fixed_focus_capture_02.jpg
+------------------------------------------------------------------------
+Query keypoints: 25
+MAX score:       12.50%
+Top-3 score:     12.50%
+Best template:   sample_09.jpg
+Median matches among Top-3: 8
+Median good matches among Top-3: 1
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_FIXED
+Image: fixed_focus_capture_03.jpg
+------------------------------------------------------------------------
+Query keypoints: 112
+MAX score:       20.00%
+Top-3 score:     17.35%
+Best template:   sample_09.jpg
+Median matches among Top-3: 15
+Median good matches among Top-3: 3
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_RIGHT
+Image: palm_20261015_174109.jpg
+------------------------------------------------------------------------
+Query keypoints: 60
+MAX score:       23.08%
+Top-3 score:     19.28%
+Best template:   sample_05.jpg
+Median matches among Top-3: 14
+Median good matches among Top-3: 3
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_RIGHT
+Image: palm_20261015_174126.jpg
+------------------------------------------------------------------------
+Query keypoints: 31
+MAX score:       7.69%
+Top-3 score:     2.56%
+Best template:   sample_10.jpg
+Median matches among Top-3: 11
+Median good matches among Top-3: 0
+
+------------------------------------------------------------------------
+Group: SHRINIDHI_RIGHT
+Image: palm_20261015_174146.jpg
+------------------------------------------------------------------------
+Query keypoints: 21
+MAX score:       8.33%
+Top-3 score:     2.78%
+Best template:   sample_10.jpg
+Median matches among Top-3: 11
+Median good matches among Top-3: 0
+
+------------------------------------------------------------------------
+Group: YOUR_LEFT
+Image: palm_20261016_122854.jpg
+------------------------------------------------------------------------
+Query keypoints: 84
+MAX score:       16.67%
+Top-3 score:     14.85%
+Best template:   sample_08.jpg
+Median matches among Top-3: 13
+Median good matches among Top-3: 2
+
+------------------------------------------------------------------------
+Group: YOUR_LEFT
+Image: palm_20261016_122931.jpg
+------------------------------------------------------------------------
+Query keypoints: 205
+MAX score:       31.25%
+Top-3 score:     25.74%
+Best template:   sample_01.jpg
+Median matches among Top-3: 16
+Median good matches among Top-3: 4
+
+------------------------------------------------------------------------
+Group: YOUR_LEFT
+Image: palm_20261016_122945.jpg
+------------------------------------------------------------------------
+Query keypoints: 115
+MAX score:       16.67%
+Top-3 score:     12.96%
+Best template:   sample_01.jpg
+Median matches among Top-3: 12
+Median good matches among Top-3: 2
+
+========================================================================
+GROUP SUMMARY - CLAHE_ORB
+========================================================================
+
+SHRINIDHI_LEFT
+---------------------------------------------
+  Number of scans: 6
+  Mean Top-3: 21.24%
+  Minimum:    5.66%
+  Maximum:    32.45%
+
+SHRINIDHI_FIXED
+---------------------------------------------
+  Number of scans: 3
+  Mean Top-3: 14.16%
+  Minimum:    12.50%
+  Maximum:    17.35%
+
+SHRINIDHI_RIGHT
+---------------------------------------------
+  Number of scans: 3
+  Mean Top-3: 8.21%
+  Minimum:    2.56%
+  Maximum:    19.28%
+
+YOUR_LEFT
+---------------------------------------------
+  Number of scans: 3
+  Mean Top-3: 17.85%
+  Minimum:    12.96%
+  Maximum:    25.74%
+
+========================================================================
+SEPARATION ANALYSIS
+========================================================================
+Lowest genuine score:       5.66%
+Highest Shrinidhi right:    19.28%
+Highest different person:   25.74%
+Highest negative overall:   25.74%
+Left-vs-right gap:          -13.62 points
+Different-person gap:       -20.07 points
+Overall separation gap:     -20.07 points
+
+RESULT: Genuine and unenrolled score ranges overlap.
+
+------------------------------------------------------------------------
+NEW GENUINE SCANS
+------------------------------------------------------------------------
+New scan 1: 15.13%
+New scan 2: 14.65%
+New scan 3: 5.66%
+Lowest NEW genuine score: 5.66%
+
+------------------------------------------------------------------------
+MANUAL FOCUS vs RECENT AUTOFOCUS (same enrollment)
+------------------------------------------------------------------------
+Recent AF mean Top-3:    11.82%
+Fixed focus mean Top-3: 14.16%
+Difference (fixed - AF): +2.34 points
+Fixed focus minimum:    12.50%
+Highest negative:       25.74%
+All genuine minimum:    5.66%
+Observational comparison only: lighting, pose, and session may differ.
+
+Median selected match count: 13
+Total processing time: 0.40 seconds
+
+==========================================================================================
+FINAL SIDE-BY-SIDE RESULTS
+==========================================================================================
+Method               Genuine   Your Left   Other Gap    All Gap  Matches      Time
+------------------------------------------------------------------------------------------
+OLD_FRANGI            19.14%      11.67%       -7.47     -18.73      195     22.2s
+CURRENT_FRANGI        42.01%      31.73%      -13.63     -18.10      132     25.8s
+CLAHE_ORB             21.24%      17.85%      -20.07     -20.07       13      0.4s
+
+==========================================================================================
+FOCUS COHORT SUMMARY
+==========================================================================================
+OLD_FRANGI         Recent-AF mean: 10.34% | Fixed mean: 17.46% | Fixed min: 15.99% | All-genuine vs negative gap: -18.73
+CURRENT_FRANGI     Recent-AF mean: 28.77% | Fixed mean: 40.14% | Fixed min: 35.18% | All-genuine vs negative gap: -18.10
+CLAHE_ORB          Recent-AF mean: 11.82% | Fixed mean: 14.16% | Fixed min: 12.50% | All-genuine vs negative gap: -20.07
+
+==========================================================================================
+EXPERIMENT COMPLETED
+==========================================================================================
+Scores are ORB good-match ratios, not authentication confidence.
+No authentication or payment was performed.
+Results from 15 test images do not establish biometric recognition reliability.
+(.venv-ml) pi@veinpay:~/VeinPay $ 

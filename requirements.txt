@@ -1,0 +1,9 @@
+# Raspberry Pi 5 (Debian). picamera2 / libcamera come from apt, not pip:
+#   sudo apt install python3-picamera2
+Flask>=3.0
+numpy>=1.26
+opencv-python-headless>=4.8
+scikit-image
+Pillow
+adafruit-circuitpython-ssd1306
+adafruit-circuitpython-vl53l0x

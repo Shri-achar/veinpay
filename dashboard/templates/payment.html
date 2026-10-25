@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>New Payment - VeinPay</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background: #111827;
+            color: white;
+            padding: 28px 20px;
+        }
+
+        .brand {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 35px;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-top: 4px;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 13px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            color: #d1d5db;
+            text-decoration: none;
+        }
+
+        .nav-item:hover {
+            background: #1f2937;
+            color: white;
+        }
+
+        .active {
+            background: #374151;
+            color: white;
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: auto;
+        }
+
+        .header {
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .header p {
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .merchant-card {
+            background: #111827;
+            color: white;
+
+            padding: 24px;
+
+            border-radius: 16px;
+
+            margin-bottom: 22px;
+        }
+
+        .merchant-label {
+            font-size: 12px;
+            color: #9ca3af;
+            letter-spacing: 1px;
+        }
+
+        .shop-name {
+            margin-top: 5px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .merchant-name {
+            margin-top: 5px;
+            color: #d1d5db;
+        }
+
+        .wallet-row {
+            margin-top: 20px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid
+                #374151;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .wallet-label {
+            color: #d1d5db;
+        }
+
+        .wallet-value {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .card {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 3px 14px
+                rgba(0, 0, 0, 0.07);
+        }
+
+        .amount-label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .amount-box {
+            display: flex;
+            align-items: center;
+
+            border:
+                2px solid
+                #d1d5db;
+
+            border-radius: 12px;
+
+            margin-bottom: 25px;
+
+            overflow: hidden;
+        }
+
+        .currency {
+            padding: 16px 18px;
+            background: #f9fafb;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 16px;
+            font-size: 26px;
+            min-width: 0;
+        }
+
+        .start-button {
+            width: 100%;
+
+            padding: 16px;
+
+            border: none;
+            border-radius: 11px;
+
+            background: #111827;
+            color: white;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .start-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .quick-title {
+            margin-top: 28px;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .quick-buttons {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 10px;
+        }
+
+        .quick-button {
+            padding: 12px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #f3f4f6;
+            color: #111827;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .quick-button:hover {
+            background: #e5e7eb;
+        }
+
+        .error {
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 14px;
+
+            border-radius: 9px;
+
+            background: #fef2f2;
+
+            border:
+                1px solid
+                #fca5a5;
+
+            color: #991b1b;
+        }
+
+        .info {
+            margin-top: 25px;
+
+            padding: 18px;
+
+            background: #f9fafb;
+
+            border-radius: 10px;
+
+            color: #4b5563;
+
+            line-height: 1.6;
+        }
+
+        .flow {
+            margin-top: 14px;
+
+            padding: 14px;
+
+            background: white;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            font-weight: bold;
+        }
+
+        @media(max-width: 800px) {
+
+            .sidebar {
+                display: none;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .quick-buttons {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            VeinPay
+
+            <div class="tagline">
+                Pay with your palm.
+            </div>
+
+        </div>
+
+        <a
+            class="nav-item"
+            href="/"
+        >
+            Dashboard
+        </a>
+
+        <a
+            class="nav-item"
+            href="/enroll"
+        >
+            Register User
+        </a>
+
+        <a
+            class="nav-item active"
+            href="/payment"
+        >
+            New Payment
+        </a>
+
+        <a
+            class="nav-item"
+            href="/merchant-wallet"
+        >
+            Merchant Wallet
+        </a>
+
+        <a
+            class="nav-item"
+            href="/scan"
+        >
+            Payment Scan
+        </a>
+
+    </aside>
+
+    <main class="content">
+
+        <div class="container">
+
+            <div class="header">
+
+                <h1>
+                    Merchant Payment
+                </h1>
+
+                <p>
+                    Enter the customer's bill amount and begin palm authentication.
+                </p>
+
+            </div>
+
+
+            {% if merchant %}
+
+            <div class="merchant-card">
+
+                <div class="merchant-label">
+                    ACTIVE MERCHANT
+                </div>
+
+                <div class="shop-name">
+
+                    {{ merchant["shop_name"] }}
+
+                </div>
+
+                <div class="merchant-name">
+
+                    Merchant:
+                    {{ merchant["merchant_name"] }}
+
+                    &nbsp; | &nbsp;
+
+                    ID:
+                    {{ merchant["merchant_id"] }}
+
+                </div>
+
+
+                <div class="wallet-row">
+
+                    <div class="wallet-label">
+                        Merchant Wallet
+                    </div>
+
+                    <div class="wallet-value">
+
+                        ₹{{ "%.2f"|format(merchant["wallet_balance"]) }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% else %}
+
+            <div class="merchant-card">
+
+                <div class="shop-name">
+                    Merchant not available
+                </div>
+
+            </div>
+
+            {% endif %}
+
+
+            <div class="card">
+
+                <div class="amount-label">
+                    Customer Payment Amount
+                </div>
+
+                <div class="amount-box">
+
+                    <div class="currency">
+                        ₹
+                    </div>
+
+                    <input
+                        id="amount"
+                        type="number"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="0.00"
+                        autofocus
+                    >
+
+                </div>
+
+
+                <button
+                    class="start-button"
+                    id="startButton"
+                    onclick="startPayment()"
+                    {% if not merchant %}
+                        disabled
+                    {% endif %}
+                >
+
+                    Start Palm Payment
+
+                </button>
+
+
+                <div class="quick-title">
+                    Quick Amount
+                </div>
+
+
+                <div class="quick-buttons">
+
+                    <button
+                        class="quick-button"
+                        type="button"
+                        onclick="setAmount(50)"
+                    >
+                        ₹50
+                    </button>
+
+                    <button
+                        class="quick-button"
+                        type="button"
+                        onclick="setAmount(100)"
+                    >
+                        ₹100
+                    </button>
+
+                    <button
+                        class="quick-button"
+                        type="button"
+                        onclick="setAmount(200)"
+                    >
+                        ₹200
+                    </button>
+
+                    <button
+                        class="quick-button"
+                        type="button"
+                        onclick="setAmount(500)"
+                    >
+                        ₹500
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="error"
+                    id="errorMessage"
+                >
+                </div>
+
+
+                <div class="info">
+
+                    <b>
+                        VeinPay transaction flow
+                    </b>
+
+                    <div class="flow">
+
+                        Customer Wallet
+
+                        <br>
+
+                        ↓ Debit ₹Amount
+
+                        <br><br>
+
+                        Palm Payment
+
+                        <br><br>
+
+                        ↓ Credit ₹Amount
+
+                        <br>
+
+                        Merchant Wallet
+
+                    </div>
+
+                    <br>
+
+                    The actual transfer will only happen after successful palm authentication.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script>
+
+function setAmount(amount) {
+
+    document
+        .getElementById(
+            "amount"
+        )
+        .value =
+        amount;
+
+}
+
+
+function showError(message) {
+
+    const box =
+        document.getElementById(
+            "errorMessage"
+        );
+
+    box.innerText =
+        message;
+
+    box.style.display =
+        "block";
+
+}
+
+
+async function startPayment() {
+
+    const amountInput =
+        document.getElementById(
+            "amount"
+        );
+
+    const errorBox =
+        document.getElementById(
+            "errorMessage"
+        );
+
+    const button =
+        document.getElementById(
+            "startButton"
+        );
+
+    const amount =
+        Number(
+            amountInput.value
+        );
+
+
+    errorBox.style.display =
+        "none";
+
+
+    if (
+        Number.isFinite(
+            amount
+        ) !== true
+        ||
+        amount <= 0
+    ) {
+
+        showError(
+            "Enter a valid payment amount greater than ₹0."
+        );
+
+        return;
+
+    }
+
+
+    button.disabled =
+        true;
+
+    button.innerText =
+        "Creating Payment Request...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/payment/start",
+                {
+                    method:
+                        "POST",
+
+                    headers:
+                        {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                    body:
+                        JSON.stringify(
+                            {
+                                amount:
+                                    amount
+                            }
+                        )
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (
+            response.ok !== true
+            ||
+            result.success !== true
+        ) {
+
+            showError(
+                result.message
+                ||
+                "Unable to start payment."
+            );
+
+            button.disabled =
+                false;
+
+            button.innerText =
+                "Start Palm Payment";
+
+            return;
+
+        }
+
+
+        window.location.href =
+            result.scan_url;
+
+    }
+
+    catch (error) {
+
+        console.error(
+            error
+        );
+
+        showError(
+            "Unable to contact VeinPay server."
+        );
+
+        button.disabled =
+            false;
+
+        button.innerText =
+            "Start Palm Payment";
+
+    }
+
+}
+
+
+document
+    .getElementById(
+        "amount"
+    )
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key
+                ===
+                "Enter"
+            ) {
+
+                startPayment();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+
+</html>
