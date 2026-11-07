@@ -41,6 +41,8 @@ Details and a file-by-file map are in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.m
 
 The planned, unvalidated V3 improvement work and focused test checklist are in [docs/V3_IMPROVEMENT_ROADMAP.md](docs/V3_IMPROVEMENT_ROADMAP.md).
 
+The team-supplied processing and algorithm report is in [docs/SOFTWARE_PROCESSING_REPORT.md](docs/SOFTWARE_PROCESSING_REPORT.md); its status note identifies configuration details that still need reconciliation with the source code.
+
 ## Running it (on the Pi)
 
 ```bash
