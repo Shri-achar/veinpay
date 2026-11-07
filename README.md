@@ -39,6 +39,8 @@ NoIR camera -> crop ROI -> grayscale -> CLAHE -> blur -> Frangi filter
 
 Details and a file-by-file map are in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
+The planned, unvalidated V3 improvement work and focused test checklist are in [docs/V3_IMPROVEMENT_ROADMAP.md](docs/V3_IMPROVEMENT_ROADMAP.md).
+
 ## Running it (on the Pi)
 
 ```bash
